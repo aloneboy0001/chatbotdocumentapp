@@ -1,0 +1,216 @@
+{
+  "introduction": "Welcome to the installation and customization guide for the AI-Powered WordPress Chat Bot. Follow these steps to integrate and personalize the chat bot on your WordPress site.",
+  "installation_instructions": [
+    {
+      "section_title": "2. Installation Instructions",
+      "steps": [
+        {
+          "title": "2.1. Update API URLs",
+          "instructions": [
+            "Open the `script.js` file.",
+            "Update the API URLs to match your website domain.",
+            {
+              "code_snippet": "const apiUrl = 'yourdomain.com/wp-json/myapi/v1/chat-bot/';\nconst botConfigurationUrl = 'yourdomain.com/wp-json/myapi/v1/chat-bot-config';",
+              "example": "const apiUrl = 'http://trial-wp.great-site.net/wp-json/myapi/v1/chat-bot/';\nconst botConfigurationUrl = 'http://trial-wp.great-site.net/wp-json/myapi/v1/chat-bot-config';"
+            }
+          ]
+        },
+        {
+          "title": "2.2. Install WP Code Snippets Plugin",
+          "instructions": [
+            "Go to Plugins > Add New in your WordPress dashboard.",
+            "Search for WP Code Snippets.",
+            "Install and Activate the plugin."
+          ]
+        },
+        {
+          "title": "2.3. Add Configuration Code",
+          "instructions": [
+            "Navigate to Snippets > Add New.",
+            "Name your snippet.",
+            "Paste the contents of `config.php` into the snippet editor.",
+            "Set the code type to PHP.",
+            "Configure the snippet to Run everywhere.",
+            "Save the snippet.",
+            {
+              "code_snippet": "<?php\n$api_key = 'your_openai_api_key'; // Replace with your OpenAI API key\n// Other configuration settings\n?>"
+            }
+          ]
+        },
+        {
+          "title": "2.4. Add OpenAI API Key",
+          "instructions": [
+            "Find the `$api_key` variable in the PHP snippet.",
+            "Insert your OpenAI API key.",
+            {
+              "code_snippet": "$api_key = 'sk-YourOpenAIAPIKey';"
+            }
+          ]
+        },
+        {
+          "title": "2.5. Create and Configure the Chat Bot Page",
+          "instructions": [
+            "Create a new page in WordPress:",
+            "- Go to Pages > Add New.",
+            "- Name the page as desired.",
+            "Add Custom HTML:",
+            "- Create a custom HTML element and paste the contents of `index.html`.",
+            "Add Custom CSS:",
+            "- Create another custom HTML element and add your CSS code.",
+            "Add Custom JavaScript:",
+            "- Create a final custom HTML element and paste the contents of `script.js`.",
+            "Save the page."
+          ]
+        }
+      ]
+    }
+  ],
+  "customizing_your_chat_bot": [
+    {
+      "section_title": "3. Customizing Your Chat Bot",
+      "steps": [
+        {
+          "title": "3.1. Change Chat Bot Avatar Image",
+          "instructions": [
+            "Open the WP Code Snippets you created.",
+            "Find the `$user_avatar_url` variable.",
+            "Update the URL to your new avatar image.",
+            {
+              "code_snippet": "$user_avatar_url = 'https://yourdomain.com/path/to/new-avatar.png';"
+            }
+          ]
+        },
+        {
+          "title": "3.2. Change Chat Bot Image",
+          "instructions": [
+            "Locate the `$bot_image_url` variable.",
+            "Update the URL to your new bot image.",
+            {
+              "code_snippet": "$bot_image_url = 'https://yourdomain.com/path/to/new-bot-image.png';"
+            }
+          ]
+        },
+        {
+          "title": "3.3. Set Chat Bot Status",
+          "instructions": [
+            "Find the `$botStatus` variable.",
+            "Set the value to `0` for offline/inactive or `1` for online/active.",
+            {
+              "code_snippet": "$botStatus = 1; // Set to 0 to deactivate"
+            }
+          ]
+        },
+        {
+          "title": "3.4. Modify Start-Up Message",
+          "instructions": [
+            "Locate the `StartUpMessage` variable.",
+            "Change the default message.",
+            {
+              "code_snippet": "$StartUpMessage = 'Welcome! How can I assist you today?';"
+            }
+          ]
+        },
+        {
+          "title": "3.5. Adjust Font Size",
+          "instructions": [
+            "Find the `fontSize` variable.",
+            "Update the value to your desired font size in pixels.",
+            {
+              "code_snippet": "$fontSize = '18'; // Change as needed"
+            }
+          ]
+        },
+        {
+          "title": "3.6. Update Button Text and Prompts",
+          "instructions": [
+            "Locate the `commonButtons` array.",
+            "Update the `buttonText` and `buttonPrompt` values.",
+            {
+              "code_snippet": "'commonButtons' => array(\n    array(\n        'buttonText' => 'Need Help?',\n        'buttonPrompt' => 'Ask me for assistance'\n    ),\n    array(\n        'buttonText' => 'Discounts',\n        'buttonPrompt' => 'Show me the discounts'\n    )\n)"
+            }
+          ]
+        },
+        {
+          "title": "3.7. Customize System Prompt",
+          "instructions": [
+            "Find the `$conversation_history` variable in the PHP code.",
+            "Update the system prompt message.",
+            {
+              "code_snippet": "$conversation_history = 'Answer questions only related to digital marketing, otherwise, say I don\\'t know';"
+            }
+          ]
+        },
+        {
+          "title": "3.8. Change API Model",
+          "instructions": [
+            "Locate the `$body` variable.",
+            "Update the API model if necessary.",
+            "Update the `$api_url` accordingly.",
+            {
+              "code_snippet": "$body = array(\n    'model' => 'gpt-3.5-turbo', // Change model if needed\n    'messages' => array(\n        array(\n            'role' => 'system',\n            'content' => 'Provide answers based on the digital marketing topic.'\n        )\n    )\n);"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testing_and_verification": [
+    {
+      "section_title": "4. Testing and Verification",
+      "steps": [
+        "Visit the page you created to see the chat bot in action.",
+        "Verify that the chat bot operates correctly.",
+        "Clear your browser and site cache if changes do not appear immediately."
+      ]
+    }
+  ],
+  "troubleshooting": [
+    {
+      "section_title": "5. Troubleshooting",
+      "steps": [
+        {
+          "title": "Common Issues",
+          "issues": [
+            "Chat Bot Not Displaying: Ensure API URLs and file paths are correct.",
+            "Configuration Errors: Double-check the PHP snippet for syntax errors."
+          ]
+        },
+        {
+          "title": "Resources",
+          "links": [
+            {
+              "label": "WordPress Documentation",
+              "url": "https://wordpress.org/support/"
+            },
+            {
+              "label": "OpenAI API Documentation",
+              "url": "https://beta.openai.com/docs/"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "support": [
+    {
+      "section_title": "6. Support",
+      "steps": [
+        {
+          "step": "For additional help, please contact our support team:",
+          "details": [
+            {
+              "contact_method": "Email",
+              "value": "support@example.com"
+            },
+            {
+              "contact_method": "Phone",
+              "value": "+1-234-567-890"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": "Thank you for using our AI-Powered WordPress Chat Bot!",
+  "signature": "Best Regards,\nThe Support Team"
+}
